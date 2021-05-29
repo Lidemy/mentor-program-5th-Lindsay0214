@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant-index</title>
+    <style>
+        #restaurant {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            align-items: center;
+        }
+
+        .header {
+            width: 100%;
+            height: 84px;
+            border-bottom: 0.1px solid rgb(120, 120, 120, 0.6);
+        }
+
+        .logo a {
+            width: 50%;
+            font-size: 36px;
+            color: #489846;
+            text-decoration: none;
+            float: left;
+            text-align: left;
+            padding-left: 100px;
+            padding-top: 10px;
+        }
+
+        .main-list {
+            list-style: none;
+            display: flex;
+            padding-top: 5px;
+        }
+        .main-list li {
+            height: 17px;
+            margin: 14px 30px;
+            font-size: 18px;
+        }
+
+        .main-list li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .main-list li .btn,
+        .main-list li a:hover {
+            color: white;
+            height: 44px;
+            padding: 13px;
+            border-radius: 8px;
+            background-color: #ff7286;
+        }
+        .FAQ{
+            width: 75%;
+            padding: 20px;
+        }
+        .FAQ h3::before{
+            content: "Q :";
+            color: #70b282;
+            font-size: 20px;
+            font-weight: 400;
+            padding: 10px;
+
+        }
+       
+
+        .FAQ h3{
+            font-size: 18px;
+            font-weight: 300;
+            text-align: left;
+            padding-bottom: 20px;
+            margin: 50px;
+            border-bottom: solid 1px #a6e2c0;
+        }
+
+        .FAQ p{
+            text-align: left;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 0 50px;
+
+        }
+
+        .title{
+            font-size: 30px;
+            font-weight: bold;
+            color: #000000;
+            padding: 30px;
+        }
+
+        .title::before {
+            content: "";
+            border: 5px #a3dea2 solid;
+            opacity: 0.5;
+            margin: 20px;
+        }
+
+
+        .footer {
+            display: flex;
+            background-color: #e8efee;
+            height: 300px;
+        }
+
+        .footer_lf {
+            text-align: left;
+            padding-top: 70px;
+            padding-left: 50px;
+        }
+
+        .footer_rt {
+            text-align: right;
+            padding-top: 70px;
+            padding-right: 30px;
+            padding-left: 500px;
+        }
+
+        .footer_lf p {
+            font-size: 14px;
+            color: #484848;
+        }
+
+        .footer_logo a {
+            text-decoration: none;
+            color: #489846;
+            font-size: 36px;
+        }
+
+        .footer_rt .footer_social a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #484848;
+        }
+
+        .copyright {
+            background-color: #35564b;
+            color: white;
+            margin: 20px 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        .copyright p {
+            margin: 0;
+            padding: 10px;
+        }
+</style>
+</head>
+
+<body>
+    <div id=restaurant>
+        <div class="header">
+            <div>
+                <div class="logo">
+                    <a href="file:///Users/lindsay/Desktop/hw-demo/mentor-program-5th-Lindsay0214/homeworks/week6/hw1/index.html">Just A Bite!</a>
+                </div>
+                <ul class="main-list">
+                    <li><a href="#1" class="btn">抽個大獎</a></li>
+                    <li><a href="#2">我要點餐</a></li>
+                    <li><a href="#3">查詢訂單</a></li>
+                    <li><a href="#4">常見問題</a></li>
+                </ul>
+            </div>
+        </div>
+
+       
+        <div class="FAQ">
+            <h2 class="title">FAQ - 常見問題</h2>
+            <div class="Question">
+                <h3 onload="init();">請問用餐需要事先訂位嗎？</h3>
+                <p class="Ans">
+                    為了滿足顧客多方面的需求，並將訂位服務做到最好，我們開放一個月內的訂位，建議您可以直接撥打各分店服務專線，越早預約越有機會選擇您想要的用餐時間喔！各分店預約訂位專線詳見『門市據點一覽表』 (特殊節日開放訂位時間會另行公佈)
+                </p>
+
+                <h3>請問過年有營業嗎？</h3>
+                <p class="Ans">
+                    只有除夕當天的時間會另行發佈於官網，其餘時間都正常營業。
+                </p>
+
+                <h3>請問有附設停車場嗎？</h3>
+                <p class="Ans">
+                    目前大部分店家都位於百貨或商場內，皆有附設停車場，也建議搭乘大眾交通運輸工具前往。
+                </p>
+
+                <h3>請問餐廳內有設立吸煙區嗎？</h3>
+                <p class="Ans">
+                    餐廳皆為開放式空間，未提供吸煙區座位。
+                </p>
+
+                <h3>請問有提供娃娃的座椅嗎？</h3>
+                <p class="Ans">
+                    全台分店都有特別為小朋友準備娃娃專用座椅，如果有需要可向服務人員告知。
+                </p>
+
+                <h3>請問可以攜帶寵物用餐嗎？</h3>
+                <p class="Ans">
+                    寵物需放置於提籃中，導盲犬可隨同入內用餐，需事先與服務人員告知，以便為您安排適當的座位。
+                </p>
+
+                <h3>請問消費可以刷卡嗎？</h3>
+                <p class="Ans">
+                    各店皆有提供刷卡服務。
+                </p>
+
+                <h3>請問有提供兒童餐嗎？</h3>
+                <p class="Ans">
+                    本餐廳提供之『兒童餐 250元』12歲以下兒童可點，12歲以上低消一份主餐。
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer_lf">
+                <p>餐館地址: 天上地下天堂路三分之一里六段520號</p>
+                <p>訂位專線：02-1314-5566</p>
+                <p>營業時間：週一〜週五 09:00~18:00 / 週六、週日、國定假日（含連假）休息</p>
+                <p>email：service@justabite.com.tw</p>
+            </div>
+
+            <div class="footer_rt">
+                <div class="footer_logo">
+                    <a href="#">Just A Bite!</a>
+                </div>
+                <br>
+                <div class="footer_social"><a href="#">Facebook / </a><a href="#">Instagram / </a><a href="#">YouTube</a></div>
+            </div>
+            
+        </div>
+
+        <div class="copyright"><p>Copyright © 2020 Just A Bite All Rights Reserved. 咬一口股份有限公司版權所有</p></div>
+
+    </div>
+</body>
+<script>
+    document.querySelector('.Ans').addEventListener('click', function hide(e){
+        e.target.style.visibility = 'hidden';
+    })
+
+
+
+
+</script>
+</html>
