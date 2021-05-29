@@ -160,20 +160,16 @@
              div.style.opacity = '.6';
              console.log(box)
 
-             if(name.value == "" && email.value == ""){
-                 alert("please check")
+             if(name.value === ""){
                  div.innerHTML = '請輸入暱稱'
                  document.querySelector('.section1').appendChild(div)
             } else if(email.value == ""){
-                 alert("please check")
                  div.innerHTML = '請輸入電子郵件'
                  document.querySelector('.section2').appendChild(div)
             } else if(phone.value == ""){
-                 alert("please check")
                  div.innerHTML = '請輸入電話號碼'
                  document.querySelector('.section3').appendChild(div)
             } else if(activity.value == ""){
-                 alert("please check")
                  div.innerHTML = '請填寫如何知道本活動的'
                  document.querySelector('.section5').appendChild(div)
             } else if(box.value = box.length){
@@ -193,10 +189,6 @@
                  div.innerHTML = '請勾選報名類型'
                  document.querySelector('.section4').appendChild(div)
             } 
-
         })
-
-
-
     </script>
 </html>

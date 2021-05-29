@@ -148,6 +148,9 @@
             margin: 0;
             padding: 10px;
         }
+        .hide{
+            display: none;
+        }
 </style>
 </head>
 
@@ -171,43 +174,43 @@
         <div class="FAQ">
             <h2 class="title">FAQ - 常見問題</h2>
             <div class="Question">
-                <h3 onload="init();">請問用餐需要事先訂位嗎？</h3>
-                <p class="Ans">
+                <h3 onclick="toggleAnswer(1);">請問用餐需要事先訂位嗎？</h3>
+                <p class="Ans1 hide">
                     為了滿足顧客多方面的需求，並將訂位服務做到最好，我們開放一個月內的訂位，建議您可以直接撥打各分店服務專線，越早預約越有機會選擇您想要的用餐時間喔！各分店預約訂位專線詳見『門市據點一覽表』 (特殊節日開放訂位時間會另行公佈)
                 </p>
 
-                <h3>請問過年有營業嗎？</h3>
-                <p class="Ans">
+                <h3 onclick="toggleAnswer(2);">請問過年有營業嗎？</h3>
+                <p class="Ans2 hide">
                     只有除夕當天的時間會另行發佈於官網，其餘時間都正常營業。
                 </p>
 
-                <h3>請問有附設停車場嗎？</h3>
-                <p class="Ans">
+                <h3 onclick="toggleAnswer(3);">請問有附設停車場嗎？</h3>
+                <p class="Ans3 hide">
                     目前大部分店家都位於百貨或商場內，皆有附設停車場，也建議搭乘大眾交通運輸工具前往。
                 </p>
 
-                <h3>請問餐廳內有設立吸煙區嗎？</h3>
-                <p class="Ans">
+                <h3 onclick="toggleAnswer(4);">請問餐廳內有設立吸煙區嗎？</h3>
+                <p class="Ans4 hide">
                     餐廳皆為開放式空間，未提供吸煙區座位。
                 </p>
 
-                <h3>請問有提供娃娃的座椅嗎？</h3>
-                <p class="Ans">
+                <h3 onclick="toggleAnswer(5);">請問有提供娃娃的座椅嗎？</h3>
+                <p class="Ans5 hide">
                     全台分店都有特別為小朋友準備娃娃專用座椅，如果有需要可向服務人員告知。
                 </p>
 
-                <h3>請問可以攜帶寵物用餐嗎？</h3>
-                <p class="Ans">
+                <h3 onclick="toggleAnswer(6);">請問可以攜帶寵物用餐嗎？</h3>
+                <p class="Ans6 hide">
                     寵物需放置於提籃中，導盲犬可隨同入內用餐，需事先與服務人員告知，以便為您安排適當的座位。
                 </p>
 
-                <h3>請問消費可以刷卡嗎？</h3>
-                <p class="Ans">
+                <h3 onclick="toggleAnswer(7);">請問消費可以刷卡嗎？</h3>
+                <p class="Ans7 hide">
                     各店皆有提供刷卡服務。
                 </p>
 
-                <h3>請問有提供兒童餐嗎？</h3>
-                <p class="Ans">
+                <h3 onclick="toggleAnswer(8);">請問有提供兒童餐嗎？</h3>
+                <p class="Ans8 hide">
                     本餐廳提供之『兒童餐 250元』12歲以下兒童可點，12歲以上低消一份主餐。
                 </p>
             </div>
@@ -228,20 +231,14 @@
                 <br>
                 <div class="footer_social"><a href="#">Facebook / </a><a href="#">Instagram / </a><a href="#">YouTube</a></div>
             </div>
-            
         </div>
-
         <div class="copyright"><p>Copyright © 2020 Just A Bite All Rights Reserved. 咬一口股份有限公司版權所有</p></div>
-
     </div>
 </body>
 <script>
-    document.querySelector('.Ans').addEventListener('click', function hide(e){
-        e.target.style.visibility = 'hidden';
-    })
-
-
-
-
+    function toggleAnswer(number){
+        let answer = document.querySelector('.Ans'+number);
+        answer.classList.toggle("hide");
+    }
 </script>
 </html>
