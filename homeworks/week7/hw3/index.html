@@ -28,7 +28,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            width: 400px;
+            width: 480px;
             max-width: 100%;
         }
 
@@ -45,22 +45,59 @@
         .content{
             padding: 15px;
         }
-        .add,
-        .delete{
-            padding: 10px 20px;
-            margin: 5px;
+        /* .delete{
+            padding: 12px 20px;
+            margin: 10px;
+            margin-left: 25px;
             color: white;
             background-color: #ca94df;
             opacity: .8;
-            font-size: 16px;
+            font-size: 20px;
             border-radius: 5px;
-            border: none;
+        } */
+        .addToDo,
+        .delete{
+            width: 50px;
+            height: 50px;
+            color: white;
+            background-color: #ca94df;
+            opacity: .8;
+            font-size: 30px;
+            border-radius: 50%;
+            margin: 2px;
         }
-        .inputField{
-            margin: 10px;
+        .inputField_text{
+            width: 300px;
+            height: 50px;
+            border: 1px solid #ca94df;
+            border-radius: 5px;
+            outline: none;
+            font-size: 24px;
+            vertical-align: middle;
+            display: inline-block;
+            margin: 20px;
         }
 
+        .event-styling{
+            font-size: 20px;
+            color: #9b59b6;
+            margin: 6px;
+            padding: 0 20px;
+            margin-bottom: 30px;
+            border-bottom: #ca94df .2px solid ;
+        }
+        /* .inputField_checkbox{
+            width: 25px;
+            height: 25px;
+            border: 1px solid #ca94df;
+            border-radius: 5px;
+            outline: none;
+            font-size: 24px;
+            display: inline-block;
+            margin: 20px;
+        } */
 
+        
         @media screen and (max-width: 480px) {
 
             .social-panel-container.visible {
@@ -78,14 +115,31 @@
         <div class="header">
             <h2>TO DO LIST</h2>
         </div>
-        <input class="inputField" type="checkbox">
-        <div class="content"></div>
-            <button class="add">新增</button>
-            <button class="delete">刪除</button>
+            <input class="inputField_text" type="text">
+            <button class="addToDo">+</button><button class="delete">-</button>
         </div>
     </div>
 </body>
 <script>
+    let addToDoButton = document.querySelector('.addToDo')
+    let toDoContent = document.querySelector('.container')
+    let inputField = document.querySelector('.inputField_text')
+    let Delete = document.querySelector('.delete')
 
+    addToDoButton.addEventListener('click', function(){
+        let event = document.createElement('p');
+        event.classList.add('event-styling')
+        event.innerText = inputField.value;
+        toDoContent.appendChild(event);
+        inputField.value = '';
+        event.addEventListener('click', function(){
+            event.style.textDecoration = 'line-through';
+        })
+
+        Delete.addEventListener('click', function(){
+            toDoContent.removeChild(event);
+        })
+    })
+    
 </script>
 </html>
