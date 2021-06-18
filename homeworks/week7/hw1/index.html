@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新拖延運動報名表單</title>
+
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            padding-top: 120px;
+            background-color:#F0F0F0;
+        }
+
+        .form {
+            background-color: white;
+            width:45%;
+            height: 75%;
+            margin: 8px 66px 64px 380px;
+            padding: 54px 28px 35px 39px;
+            box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+            border-top: 6px solid #fad312;
+        }
+
+        .form h1{
+            font-size: 36px;
+            font-weight: 900;
+        }
+
+        .form p{
+            font-size: 14px;
+        }
+
+        span{
+            color: red;
+            font-weight: 300;
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        form h2{
+            font-size: 18px;
+            font-weight: 400;
+        }
+        form .input{
+            width: 30vw;
+            height: 3vh;
+        }
+        form .box{
+            font-size: 14px;
+            padding: 5px;
+        }
+        .section{
+            padding-top: 30px;
+        }
+
+        .btn{
+            margin-top: 30px;
+            background-color: #fad312;
+            padding: 10px 25px;
+            border: #fad312;
+        }
+
+        .alert{
+            padding-top: 20px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        footer{
+            width: 100%;
+            background-color: black;
+            text-align: center;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+            padding: 10px 0;
+        }
+
+        /* @media screen and (min-width:768px) { 
+        
+            #wrapper{
+                display: flex;
+            
+            } */
+            
+        
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+        <div class="form">
+            <h1><link>新拖延運動報名表單</h1>
+
+            <p>活動日期：2020/12/10 ~ 2020/12/11</p>
+            <p>活動地點：台北市大安區新生南路二段1號</p>
+
+            <span color="red">*必填</span>
+
+            <form>
+                <div class="section1">
+                    <h2>暱稱<span>*</span></h2>
+                    <input class="name" type="text" placeholder="請輸入暱稱" required>
+                </div>
+                <div class="section2">
+                    <h2>電子郵件<span>*</span></h2>
+                    <input class="email" type="email" placeholder="請輸入 Email" required>
+                </div>
+                <div class="section3">
+                    <h2>手機號碼<span>*</span></h2>
+                    <input class="phone" type="phone" placeholder="請輸入電話號碼" required>
+                </div>
+                <div class="section4">
+                <h2>報名類型<span>*</span></h2>
+                <input type="radio" class="box"
+                   name="contact" value="1">
+                  <label for="box">躺在床上用想像力實作</label>
+                </br>
+                  <input type="radio" class="box"
+                   name="contact" value="2">
+                  <label for="box">趴在地上滑手機找現成的</label>
+                </div>
+                <div class="section5">
+                    <h2>怎麼知道這個活動的？<span>*</span></h2>
+                    <input class="activity" type="text" required>
+                </div>
+                <div class="section">
+                    <h2>其他</h2>
+                    <p>對活動的一些建議</p>
+                    <input class="advice" type="text">
+                </div>
+            </form>
+
+            <button class="btn">提交</button>
+            <p class="alert">請勿透過表單送出您的密碼。</p>
+        </div>
+
+
+        
+    
+
+        <footer><p>© 2020 © Copyright. All rights Reserved.</p></footer>
+    </div>
+    
+</body>
+
+    <script>
+        document.querySelector('.btn').addEventListener('click',
+         function(){
+             const div = document.createElement('div')
+             let name = document.querySelector('.name')
+             let email = document.querySelector('.email')
+             let phone = document.querySelector('.phone')
+             let box = document.querySelectorAll('.box')
+             let activity = document.querySelector('.activity')
+             div.style.color = 'red';
+             div.style.opacity = '.6';
+             console.log(box)
+
+             if(name.value === ""){
+                 div.innerHTML = '請輸入暱稱'
+                 document.querySelector('.section1').appendChild(div)
+            } else if(email.value == ""){
+                 div.innerHTML = '請輸入電子郵件'
+                 document.querySelector('.section2').appendChild(div)
+            } else if(phone.value == ""){
+                 div.innerHTML = '請輸入電話號碼'
+                 document.querySelector('.section3').appendChild(div)
+            } else if(activity.value == ""){
+                 div.innerHTML = '請填寫如何知道本活動的'
+                 document.querySelector('.section5').appendChild(div)
+            } else if(box.value = box.length){
+                 alert( "Name：" + name.value + " / "+
+                        "Email：" + email.value + " / "+
+                        "Phone：" + phone.value + " / "+
+                        "Type：" + box.value + " / "+
+                        "HTK：" + activity.value)
+            } else if(box.value = box.length) {
+                alert(  "Name：" + name.value + " / "+
+                        "Email：" + email.value + " / "+
+                        "Phone：" + phone.value + " / "+
+                        "Type：" + box.value + " / "+
+                        "HTK：" + activity.value)
+                } else {
+                 alert("please check")
+                 div.innerHTML = '請勾選報名類型'
+                 document.querySelector('.section4').appendChild(div)
+            } 
+        })
+    </script>
+</html>

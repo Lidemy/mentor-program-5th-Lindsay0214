@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant-index</title>
+</head>
+<style>
+       * {
+            box-sizing: border-box;
+        }
+        
+        .header {
+            width: 100%;
+            height: 84px;
+            border-bottom: 0.1px solid rgb(120, 120, 120, 0.6);
+        }
+
+        .logo a {
+            width: 50%;
+            font-size: 36px;
+            color: #489846;
+            text-decoration: none;
+            float: left;
+            text-align: left;
+            padding-left: 100px;
+            padding-top: 10px;
+        }
+
+        .main-list {
+            list-style: none;
+            display: flex;
+            padding-top: 5px;
+        }
+        .main-list li {
+            height: 17px;
+            margin: 14px 30px;
+            font-size: 18px;
+        }
+
+        .main-list li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .main-list li .btn,
+        .main-list li a:hover {
+            color: white;
+            height: 44px;
+            padding: 13px;
+            border-radius: 8px;
+            background-color: #ff7286;
+        }
+     
+        .container{
+            position: relative;
+            background:url("bg.jpg") center/cover no-repeat;
+            width: 100%;
+            height: 800px;
+            padding: 100px 0;
+        }
+        .content {
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            width: 450px;
+            height: 500px;
+            padding: 20px 25px;
+        }
+        .content button{
+            background-color: red;
+            color: white;
+            padding: 10px 150px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            margin-top: 20px;
+
+        }
+
+        .content p{
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            line-height: 25px;
+        }
+
+        .footer {
+            display: flex;
+            background-color: #e8efee;
+            height: 300px;
+        }
+
+        .footer_lf {
+            text-align: left;
+            padding-top: 70px;
+            padding-left: 50px;
+        }
+
+        .footer_rt {
+            text-align: right;
+            padding-top: 70px;
+            padding-right: 30px;
+            padding-left: 500px;
+        }
+
+        .footer_lf p {
+            font-size: 14px;
+            color: #484848;
+        }
+
+        .footer_logo a {
+            text-decoration: none;
+            color: #489846;
+            font-size: 36px;
+        }
+
+        .footer_rt .footer_social a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #484848;
+        }
+
+        .copyright {
+            background-color: #35564b;
+            color: white;
+            margin: 20px 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        .copyright p {
+            margin: 0;
+            padding: 10px;
+        }
+        .hide{
+            display: none;
+        }
+
+        .lottery-result {
+            position: relative;
+            color: white;
+            max-width: 800px;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            }
+
+        .lottery-result__title {
+            font-size: 36px;
+        }
+
+        .lottery-result__btn {
+            color: white;
+            max-width: 330px;
+            text-align: center;
+            background: #e62a45;
+            padding: 16px 0px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+
+        .container.first-prize{
+            background-image: url(flight-4315953_1920.jpg);
+        }
+
+        .container.second-prize{
+            background-image: url(living-room-1872192_1920.jpg);
+        }
+
+        .container.third-prize{
+            background-image: url(youtube-2617510_1920.jpg);
+        }
+
+        .container.none-prize {
+            background: black;
+            color: white;
+        }
+
+
+</style>
+<body>
+        <div class="header">
+            <div>
+                <div class="logo">
+                    <a href="file:///Users/lindsay/Desktop/hw-demo/mentor-program-5th-Lindsay0214/homeworks/week6/hw1/index.html">Just A Bite!</a>
+                </div>
+                <ul class="main-list">
+                    <li><a href="#1" class="btn">抽個大獎</a></li>
+                    <li><a href="#2">我要點餐</a></li>
+                    <li><a href="#3">查詢訂單</a></li>
+                    <li><a href="file:///Users/lindsay/Desktop/hw-demo/mentor-program-5th-Lindsay0214/homeworks/week7/hw2/index.html">常見問題</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- <img src="flight-4315953_1920.jpg" alt="bgp"> -->
+            <div class="content">
+                <h2>2020 夏日輕盈特賞！抽獎活動辦法</h2>
+                <p><b>活動期間：</b>2020/06/01~2020/07/01</p>
+                <p><b>活動說明：</b>今天老闆佛心來著決定給大家發獎勵，有看有機會，沒看只能幫QQ！只要在店內消費滿1000000元即有機會獲得 - 頭獎日本東京來回雙人遊！</p>
+                <p><b>獎&nbsp&nbsp&nbsp&nbsp&nbsp品：</b>
+                    <br>❤ 頭獎一名：日本東京來回雙人遊(市價14990元)
+                    <br>❤ 貳獎三名：90 吋電視一台(市價5990元)
+                    <br>❤ 參獎十名：知名 YouTuber 簽名握手會入場券一張(市價1500元)</p>
+                <button class="button">我要抽獎</button>
+            </div>
+        </div>
+        <div class="lottery-result hide">
+            <h2 class="lottery-result__title">恭喜你中頭獎了！日本東京來回雙人遊！</h2> 
+            <div class="lottery-result__btn" onclick="javascript:window.location.reload()">
+                我要抽獎
+            </div>
+          </div>
+
+        <div class="footer">
+            <div class="footer_lf">
+                <p>餐館地址: 天上地下天堂路三分之一里六段520號</p>
+                <p>訂位專線：02-1314-5566</p>
+                <p>營業時間：週一〜週五 09:00~18:00 / 週六、週日、國定假日（含連假）休息</p>
+                <p>email：service@justabite.com.tw</p>
+            </div>
+
+            <div class="footer_rt">
+                <div class="footer_logo">
+                    <a href="#">Just A Bite!</a>
+                </div>
+                <br>
+                <div class="footer_social"><a href="#">Facebook / </a><a href="#">Instagram / </a><a href="#">YouTube</a></div>
+            </div>
+            
+        </div>
+
+        <div class="copyright"><p>Copyright © 2020 Just A Bite All Rights Reserved. 咬一口股份有限公司版權所有</p></div>
+</body>
+<script>
+    const API_ENDPOINT = 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery'
+    const errorMessage = 'oops!再試一次'
+
+    function getPrize(callback){
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', API_ENDPOINT, true)
+        xhr.onload = function(){
+            if(xhr.status >= 200 && xhr.status < 400){
+                let data
+                try{
+                    data = JSON.parse(xhr.response)
+                } catch(err){
+                    callback(errorMessage)
+                    return
+                }
+
+                if(!data.prize){
+                    callback(errorMessage)
+                    return
+                }
+                callback(null, data)
+            } else{
+                callback(errorMessage)
+            }
+        }
+        xhr.onerror = function(){
+            callback(errorMessage)
+        }
+        xhr.send()
+    }
+
+
+    const clickButton = document.querySelector('.button')
+    clickButton.addEventListener('click', function(){
+        getPrize(function(err, data){
+            if(err){
+                alert(err)
+            }
+
+            const prizes = {
+                FIRST: {
+                    className: 'first-prize',
+                    title: '恭喜你中頭獎了！日本東京來回雙人遊！'
+                },
+                SECOND: {
+                    className: 'second-prize',
+                    title: '二獎！90 吋電視一台！'
+                },
+                THIRD: {
+                    className: 'third-prize',
+                    title: '恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！'
+                },
+                NONE: {
+                    className: 'none-prize',
+                    title: '銘謝惠顧'
+                }
+            }
+            const { className, title } = prizes[data.prize]
+            document.querySelector('.container').classList.add(className)
+            document.querySelector('.lottery-result__title').innerText = title
+            document.querySelector('.content').classList.add('hide')
+            document.querySelector('.lottery-result').classList.remove('hide')
+
+        })
+    }) 
+</script>
+</html>

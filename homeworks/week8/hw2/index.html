@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week8-hw2</title>
+
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+    
+        .navbar {
+          position: fixed;
+          height: 60px;
+          background: white;
+          box-shadow: 1.4px 1.4px 6px 0 #97a2a0;
+          left: 0;
+          right: 0;
+          top: 0;
+          display: flex;
+          justify-content: space-between;
+          padding: 0px 36px;
+          align-items: center;
+          z-index: 2;
+          color:rgba(0, 0, 0, 0.5);
+        }
+    
+        .navbar_logo {
+          font-size: 32px;
+        } 
+    
+        .navbar_list {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          flex: 1;
+          justify-content: flex-end;
+          align-items: stretch;
+          height: 100%;
+        }
+    
+        .navbar_list li {
+          cursor: pointer;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          margin-left: 16px;
+          transition: all 0.2s;
+        }
+    
+        .navbar_list li:hover {
+          background: rgba(0, 0, 0, 0.7);
+          color: white;
+        }
+    
+        .wrapper {
+          max-width: 1440px;
+          margin: 0px auto 0px auto;
+          padding: 80px 0px;
+          text-align: center;
+          color: white;
+          position: relative;
+          min-height: 100vh;
+        }
+    
+        .streams {
+          display: inline-flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+    
+        .stream {
+          width: 360px;
+          background: #333;
+          color: white;
+          text-align: left;
+          cursor: pointer;
+          transition: all 0.2s;
+          opacity: 0.9;
+          margin-left: 16px;
+          margin-top: 16px;
+        }
+    
+        .stream > img {
+          width: 100%;
+        }
+    
+        .stream__data {
+          display: flex;
+          align-items: center;
+          padding: 6px;
+        }
+    
+        .stream__avatar {
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-right: 12px;
+          min-width: 64px;
+        }
+    
+        .stream__avatar > img {
+          width: 100%;
+          height: 100%;
+        }
+    
+        .stream__intro {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          overflow: hidden;
+        }
+    
+        .stream__title {
+          font-size: 20px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-bottom: 10px;
+        }
+    
+        .stream:hover {
+          transform: scale(1.07);
+          filter: brightness(1.2);
+          box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
+          opacity: 1;
+        }
+    
+        .stream-empty {
+          width: 360px;
+          margin-left: 16px;
+        }
+    
+        .content {
+          background: linear-gradient(221deg, rgba(0, 0, 0, 0.8)16%, rgba(201, 140, 253, 0.2)84%);
+          position: relative;
+        }
+    
+        .content:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(0, 0, 0, 0.3);
+        }
+      </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar_logo">Twitch Top Games</div>
+        <ul class="navbar_list">
+            <li class="active"></li>
+        </ul>
+    </header>
+    <div class="content">
+        <div class="wrapper">
+            <h1>League of Legends</h1>
+            <h2>Top 20 popular live streams sorted by current viewers</h2>
+            <section class="streams">
+                <!-- <div class="stream">
+                    <img src="preview.jpg" alt="">
+                    <div class="stream__data">
+                        <div class="stream__avatar">
+                            <img src="logo.png" alt="">
+                        </div>
+                        <div class="stream__intro">
+                            <div class="stream__title">111</div>
+                            <div class="stream__channel">222</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream">
+                    <img src="preview.jpg" alt="">
+                    <div class="stream__data">
+                        <div class="stream__avatar">
+                            <img src="logo.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream">
+                    <img src="preview.jpg" alt="">
+                    <div class="stream__data">
+                        <div class="stream__avatar">
+                            <img src="logo.png" alt="">
+                        </div>
+                    </div>
+                </div> -->
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const API_ENDPOINT = 'https://api.twitch.tv/kraken'
+        const CLIENT_ID = '1hq0ejhijx89ngqykc5opyc46k11c7'
+
+        const request = new XMLHttpRequest();
+        request.open('GET', `${API_ENDPOINT}/games/top?limit=5`, true);
+        request.setRequestHeader('Client-ID', '1hq0ejhijx89ngqykc5opyc46k11c7')
+        request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
+        request.onload = function(){
+            if(request.status >= 200 && request.status < 400){
+                const games = JSON.parse(request.response).top
+                // console.log(games) 印出確認是否順利取得
+                for(let game of games){
+                    let element = document.createElement('li') // 新增li元素跑資料的畫面
+                    element.innerHTML = game.game.name
+                    document.querySelector('.navbar_list').appendChild(element) // 此時列表遊戲都上網頁惹
+                }
+
+                document.querySelector('h1').innerText = games[0].game.name
+
+                const request2 = new XMLHttpRequest();
+                request2.open('GET', 'https://api.twitch.tv/kraken/streams?game='+ encodeURIComponent(games[0].game.name), true);
+                request2.setRequestHeader('Client-ID', '1hq0ejhijx89ngqykc5opyc46k11c7')
+                request2.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
+                request2.onload = function(){
+                    if(request2.status >= 200 && request2.status < 400){
+                        const data = JSON.parse(request2.response).streams
+                        // console.log(data) 檢查一下對不對
+                        for(let stream of data){
+                            let element = document.createElement('div');
+                            document.querySelector('.streams').appendChild(element);
+                            element.outerHTML = `
+                            <div class="stream">
+                                <img src="${stream.preview.large}" alt="">
+                                <div class="stream__data">
+                                    <div class="stream__avatar">
+                                        <img src="${stream.channel.logo}" alt="">
+                                    </div>
+                                    <div class="stream__intro">
+                                        <div   class="stream__title">${stream.channel.status}</div>
+                                        <div class="stream__channel">${stream.channel.name}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                            
+                        }
+                    }
+                }
+                request2.send()
+            }
+        }
+        request.send()
+
+        document.querySelector('.navbar_list').addEventListener('click', e => {
+            // console.log(e.target) 確認一下點擊物件元素
+            if(e.target.tagName.toLowerCase() === 'li'){
+                const gameName = e.target.innerHTML;
+                document.querySelector('h1').innerText = gameName
+                document.querySelector('.streams').innerHTML = ''
+
+                const request3 = new XMLHttpRequest();
+                request3.open('GET', 'https://api.twitch.tv/kraken/streams?game='+ encodeURIComponent(gameName), true);
+                request3.setRequestHeader('Client-ID', '1hq0ejhijx89ngqykc5opyc46k11c7')
+                request3.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
+                request3.onload = function(){
+                    if(request3.status >= 200 && request3.status < 400){
+                        const data = JSON.parse(request3.response).streams
+                        // console.log(data) 檢查一下對不對
+                        for(let stream of data){
+                            let element = document.createElement('div');
+                            document.querySelector('.streams').appendChild(element);
+                            element.outerHTML = `
+                            <div class="stream">
+                                <img src="${stream.preview.large}" alt="">
+                                <div class="stream__data">
+                                    <div class="stream__avatar">
+                                        <img src="${stream.channel.logo}" alt="">
+                                    </div>
+                                    <div class="stream__intro">
+                                        <div   class="stream__title">${stream.channel.status}</div>
+                                        <div class="stream__channel">${stream.channel.name}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                            
+                        }
+                    }
+                }
+                request3.send()
+            }
+        })
+
+    </script>
+</body>
+</html>
