@@ -170,49 +170,43 @@
   </div>
 
   <script>
-    // const url = 'https://api.twitch.tv/kraken'
-    // const clientid = '1hq0ejhijx89ngqykc5opyc46k11c7'
-    // var template = `
-    //                 <div class="stream">
-    //                   <img src="$preview" />
-    //                   <div class="stream__data">
-    //                       <div class="stream__avatar">
-    //                           <img src="$logo">
-    //                       </div>
-    //                       <div class="stream__intro">
-    //                           <div class="stream__title">$title</div>
-    //                           <div class="stream__channel">
-    //                               $channel
-    //                           </div>
-    //                       </div>
-    //                   </div>
-    //                 </div>
-    //               `
+    const url = 'https://api.twitch.tv/kraken'
+    const CLIENT_ID = '1hq0ejhijx89ngqykc5opyc46k11c7'
+    var template = `
+                    <div class="stream">
+                      <img src="$preview" />
+                      <div class="stream__data">
+                          <div class="stream__avatar">
+                              <img src="$logo">
+                          </div>
+                          <div class="stream__intro">
+                              <div class="stream__title">$title</div>
+                              <div class="stream__channel">
+                                  $channel
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  `
+    function getGames(cb) {
+      var request = new XMLHttpRequest();
+      request.open('GET', url + '/games/top?limit=5', true);
+      request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
+      request.setRequestHeader('Client-ID', CLIENT_ID)
 
-    (function getGames() {
-      const url = 'https://api.twitch.tv/kraken';
-      axios.get(url + '/games/top?limit=5')
-        .then(response => console.log('response:', response.data))
-    })();
-    // function getGames(cb) {
-    //   var request = new XMLHttpRequest();
-    //   request.open('GET', url + '/games/top?limit=5', true);
-    //   request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
-    //   request.setRequestHeader('Client-ID', clientid)
-
-    //   request.onload = function () {
-    //     if (this.status >= 200 && this.status < 400) {
-    //       cb(JSON.parse(this.response));
-    //     }
-    //   };
-    //   request.send();
-    // }
+      request.onload = function () {
+        if (this.status >= 200 && this.status < 400) {
+          cb(JSON.parse(this.response));
+        }
+      };
+      request.send();
+    }
 
     // function getStreams(name, cb) {
     //   var request = new XMLHttpRequest();
     //   request.open('GET', url + '/streams?game=' + encodeURIComponent(name), true);
     //   request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
-    //   request.setRequestHeader('Client-ID', clientid)
+    //   request.setRequestHeader('Client-ID', CLIENT_ID)
 
     //   request.onload = function () {
     //     if (this.status >= 200 && this.status < 400) {
@@ -222,43 +216,35 @@
     //   request.send();
     // }
 
-    // async function getStreams(name) {
-    //   const response = await fetch(url + '/streams?game=' + encodeURIComponent(name), {
-    //     headers: {
-    //       Accept: 'application/vnd.twitchtv.v5+json',
-    //       'Client-ID': clientid
-    //     }
-    //   })
-    //   const data = await response.json()
-    //   return data
+    function getStreams(name, cb){
+      fetch(url + '/streams?game=' + encodeURIComponent(name), {
+        headers: {
+          Accept: 'application/vnd.twitchtv.v5+json',
+          'Client-ID': CLIENT_ID
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        cb(data)
+        })
+      }
+// --------
 
-    //   try {
-    //     const data = await getStreams(topGames[0])
-    //     appendStreams(data.streams)
-    //     addPlaceholder()
-    //     addPlaceholder()
-    //     addPlaceholder()
-    //   } catch (err) {
-    //     console.log(err)
-    //   }
-    // }
-    // getStreams()
-
-
-    // getGames((games) => {
-    //   var topGames = games.top.map((game) => game.game.name)
-    //   for (let game of topGames) {
-    //     let element = document.createElement('li')
-    //     element.innerHTML = game
-    //     document.querySelector('.navbar_list').appendChild(element)
-    //   }
-    //   getStreams(topGames[0], (data) => {
-    //     appendStreams(data.streams)
-    //     addPlaceholder()
-    //     addPlaceholder()
-    //     addPlaceholder()
-    //   })
-    // })
+// --------
+    getGames((games) => {
+      var topGames = games.top.map((game) => game.game.name)
+      for (let game of topGames) {
+        let element = document.createElement('li')
+        element.innerHTML = game
+        document.querySelector('.navbar_list').appendChild(element)
+      }
+      getStreams(topGames[0], (data) => {
+        appendStreams(data.streams)
+        addPlaceholder()
+        addPlaceholder()
+        addPlaceholder()
+      })
+    })
 
     document.querySelector('.navbar_list').addEventListener('click', e => {
       if (e.target.tagName.toLowerCase() === 'li') {
