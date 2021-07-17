@@ -14,7 +14,7 @@
 4. 後端伺服器把資料存進資料庫，並且回傳 response
 5. 前端顯示 response
 
-## 假設我今天去 Google 首頁搜尋框打上：JavaScript 並且按下 Enter，請說出從這一刻開始到我看到搜尋結果為止發生在背後的事情。
+## 假設我今天去 Google 首頁搜尋框打上：JavaScript 並且按下 Ent er，請說出從這一刻開始到我看到搜尋結果為止發生在背後的事情。
 
 1. 瀏覽器送出關鍵字「JavaScript」到 Google 的 Server
 2. Google server 去資料庫查詢關鍵字，並且取得搜尋結果
@@ -91,10 +91,10 @@
 如果想看複雜的版本，可以參考：
 
 1. [从输入 URL 到页面加载完成的过程中都发生了什么事情？](http://fex.baidu.com/blog/2014/05/what-happen/)
-2. [从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！](https://segmentfault.com/a/1190000013662126)
+2. [从输入 URL 到页面加载的过程？如何由一道题完善自己的前端知识体系！](https://segmentfault.com/a/1190000013662126)
 3. [An attempt to answer the age old interview question "What happens when you type google.com into your browser and press enter?"](https://github.com/alex/what-happens-when)
 4. [上面這個的簡體中文版](https://github.com/skyline75489/what-happens-when-zh_CN)
 
 ## 請列舉出 3 個「課程沒有提到」的 command line 指令並且說明功用。
 
-沒辦法，我覺得好用的我在課程裡面好像都講到了QQ
+沒辦法，我覺得好用的我在課程裡面好像都講到了 QQ
