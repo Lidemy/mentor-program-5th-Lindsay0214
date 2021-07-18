@@ -1,0 +1,179 @@
+* {
+    margin: auto 0;
+    text-decoration: none;
+    list-style: none;
+  }
+
+$primary-color: #fefae0;
+$sub-color: #14213d;
+$border-color: #faedcd;
+
+%a {
+  display: block;
+  padding: 10px 5px 10px 0px;
+  color: #ccd5ae;
+}
+
+%border{
+    border: 3px #faedcd solid;
+    border-radius: 10px;
+}
+
+.header {
+    background-color: $primary-color;
+    height: 700px;
+    text-align: center;
+    margin-bottom: 100px;
+
+    h1{
+        line-height: 600px;
+        font-weight: 300;
+        font-size: 72px;
+    }
+  }
+
+.sub__header {
+    background-color: $primary-color;
+    height: 300px;
+    text-align: center;
+    margin-bottom: 100px;
+    
+    h1{
+        line-height: 200px;
+        font-weight: 300;
+        font-size: 72px;
+    }
+  }
+  
+.navbar__left,
+.navbar__right {
+  display: inline-block;
+
+  a{
+    @extend %a;
+  }
+}
+
+.navbar__right {
+    position: absolute;
+    right: 20px;
+}
+
+.navbar__bottom img {
+  width: 500px;
+  height: 500px;
+}
+
+.articles{
+    margin: 0 auto;
+}
+
+.article{
+    border: 1px solid #006d77;
+    padding: 30px;
+    margin: 30px 200px;
+
+    p {
+        margin: 20px 0;
+    }
+
+    a {
+        display: block;
+        color: $sub-color;
+        padding: 10px;
+        font-size: 22px;
+        font-weight: 300;
+    }
+
+    .btn {
+        border: 2px solid $sub-color;
+        width: 110px;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 10px;
+        text-align: center;
+
+        &:hover {
+            background-color: $sub-color;
+            color: #edf6f9;
+          }
+    }
+}
+
+.back{
+    @extend %a;
+}
+
+li {
+    float: left;
+    padding: 10px;
+
+    a:hover,
+    .back:hover {
+        color: #1b4332;
+    }
+  }
+  
+  footer p {
+    display: block;
+    color: $sub-color;
+    background-color: $primary-color;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 150px;
+    font-weight: 300;
+  }
+
+/* login */
+.login__box,
+.register__box {
+    @extend %border;
+    height: 400px;
+    width: 500px;
+    padding: 50px 0px 50px 70px;
+    margin: 0 auto;
+    background-color: $primary-color;
+  }
+
+.wrapper {
+    background-color: $primary-color;
+    height: 100vh;
+  }
+  
+label {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+input {
+  height: 30px;
+  width: 400px;
+  margin-bottom: 10px;
+  @extend %border;
+}
+
+textarea {
+  width: 500px;
+  @extend %border;
+}
+
+button,
+.add__content__btn {
+  display: row;
+  padding: 10px 15px;
+  font-size: 16px;
+  margin: 10px 0;
+  background-color: linen;
+  color: #e6b8a2;
+  cursor: pointer;
+  display: block;
+  @extend %border;
+
+  &::hover{
+    background-color: white;
+    color: #f2cc8f;
+  }
+}
