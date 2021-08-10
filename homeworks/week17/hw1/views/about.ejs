@@ -1,0 +1,39 @@
+<style>
+.about{
+    padding: 20px 0 20px 50px;
+}
+
+.h2__mark{
+    margin-bottom: 50px;
+}
+
+.h2__mark:after{
+    content: "";
+    display: block;
+    width: 250px;
+    height: 10px;
+    margin: -8px 25px;
+    background-color: rgb(255, 230, 0);
+}
+</style>
+<!doctype html>
+    <head>
+        <%- include('template/body') %>
+        <%- include('template/navbar') %>
+        <header>
+            <div class="main">
+                <div class="title">
+                    <h1>作者介紹</h1>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="about">
+                <h2 class="h2__mark">嗨嗨，這是00的部落格</h2>
+                <p>前端衝刺筆記，這裡不會出現。<br>心情隨筆日記，這裡不會出現。<br><br>所以呢，<br>這裡主要就是什麼都沒有這樣。</p>
+            <div>
+        </section>
+        <%- include('template/footer') %>
+    </head>
+</html>

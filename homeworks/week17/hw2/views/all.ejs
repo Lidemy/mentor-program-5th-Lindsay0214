@@ -1,0 +1,49 @@
+<!doctype html>
+<style>
+    section{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .prize__check{
+        width: 300px;
+        padding: 10px;
+        margin: 10px;
+    }
+    .img{
+        width: 300px;
+    }
+</style>
+    <head>
+        <%- include('template/body') %>
+            <a class="logo" href="/"></a>
+        <header>
+            <div class="main">
+                <div class="title">
+                    <h1>所有獎項</h1>
+                </div>
+            </div>
+        </header>
+
+            <section>
+                <div class="prize__check">
+                    <h1>空氣清淨機</h1>
+                    <img class="img" src="https://pcm.trplus.com.tw/650x650/sys-master/productImages/h0d/hdf/9082373177374/000000000016128555-gallery-01-20180601161006071.jpg">
+                </div>
+                <div class="prize__check">
+                    <h1>小米手環</h1>
+                    <img class="img" src="https://i02.appmifile.com/628_operator_sg/11/05/2021/67512c972365869cc48246dc4cbad9e1.png">
+                </div>
+                <div class="prize__check">
+                    <h1>電動拖把</h1>
+                    <img class="img" src="https://img.everrich.com/img/p/1/2/0/9/8/6/120986-large_default.jpg">
+                </div>
+                <div class="prize__check">
+                    <h1>自動噴酒精機</h1>
+                    <img class="img" src="https://cdn.cybassets.com/media/W1siZiIsIjczODIvcHJvZHVjdHMvMWZhMmE3NThiMjU5MGYxOGVjM2EyZTU0YjE3ODRiMjNmZGFkMzQ1N2MwY2ZkNmU4MzBjOWM2ZTQ2MmE1NmVlYi5qcGVnIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.jpeg?sha=0c02edec2f482f47">
+                </div>
+            </section>
+        
+        <%- include('template/footer') %>
+    </head>
+</html>

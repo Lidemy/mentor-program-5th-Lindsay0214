@@ -1,0 +1,103 @@
+<style>
+body{
+    padding: 0;
+    margin: auto;
+    list-style: none;
+    font-family: 'Noto Serif TC', serif;
+    letter-spacing: 3px;
+    background-color: #224;
+}
+
+/* header */
+header{
+    display: block;
+    background-color: #224;
+    width: 100vw;
+    height: 80vh;
+    color: aliceblue;
+}
+
+/* title */
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+}
+
+.title h1{
+    font-size: 50px;
+}
+
+.title p{
+    font-size: 20px;
+    margin-top: -14px;
+    margin-bottom: 50px;
+}
+
+.index__btn,
+.prize__btn{
+    padding: 12px 16px;
+    border-radius: 50px;
+    border: 1px solid aliceblue;
+    margin-right: 24px;
+    background-color: #224;
+    color: aliceblue;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.index__btn:hover,
+.prize__btn:hover{
+    background-color: #ffc600;
+    border: 1px solid #ffc600;
+    color: #224;
+    cursor: pointer;
+}
+
+.prize{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transform: translateY(400px);
+}
+</style>
+
+<header>
+    <div class="main">
+        <div class="title">
+            <h1>天黑請抽獎</h1>
+            <p>天黑不用閉眼，但是要抽獎。</p>
+        </div>
+            <a href="/all" class="index__btn">查看所有不可能抽到的獎項</a>
+            <a 
+            class="prize__btn"
+            style="display: flex; margin-top: 30px; justify-content: center">
+            抽起來</a>
+    </div>
+        <div class="prize"></div>
+</header>
+
+ <script>
+    const URL = 'http://localhost:3000/prizes'
+    const errorMessage = 'try again'
+    const btn = document.querySelector('.prize__btn')
+    btn.addEventListener('click', getPrize)
+    async function getPrize() {
+      const response = await fetch(`${URL}`)
+      try {
+        const data = await response.json()
+        let prize = document.querySelector('.prize')
+        console.log(data)
+        const prizeHTML = `
+          <div class="prize__title">${data.title}</div>
+          <img class="prize__img" src="${data.image}">
+          <div class="prize__desc">${data.desc}</div>
+        `
+        prize.innerHTML = `${prizeHTML}`
+      } catch(err) {
+        alert(errorMessage)
+      }
+    }
+  </script>

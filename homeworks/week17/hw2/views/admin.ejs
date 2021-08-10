@@ -1,0 +1,56 @@
+<!doctype html>
+<style>
+  .admin__table{
+    margin: 10px;
+    padding: 10px;
+  }
+
+</style>
+    <head>
+        <%- include('template/body') %>
+            <a class="logo" href="/"></a>
+        <header>
+            <div class="main">
+                <div class="title">
+                    <h1>後台管理</h1>
+                </div>
+            </div>
+        </header>
+        <section>
+        <table class="admin__table">
+          <tr>
+            <th>標題</th>
+            <th>描述</th>
+            <th>圖片</th>
+            <th>機率</th>
+            <th>修改</th>
+            <th>刪除</th>
+          </tr>
+          <% prizes.forEach(prize => { %>
+          <tr>
+            <td>
+              <div><%- prize.title %></div>
+            </td>
+            <td>
+              <div><%- prize.desc %></div>
+            </td>
+            <td>
+              <img class="admin__img" src="<%- prize.img %>">
+            </td>
+            <td>
+              <div><%- prize.shot %></div>
+            </td>
+            <td>
+              <a class="admin__update" href="/update-prize/<%= prize.id %>">update</a>
+            </td>
+            <td>
+              <a class="admin__delete" href="/delete-prize/<%= prize.id %>">delete</a>
+            </td>
+          </tr>
+        <% }) %>
+      </table>
+      </section>
+        
+        <%- include('template/footer') %>
+    </head>
+</html>

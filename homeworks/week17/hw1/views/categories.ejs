@@ -1,0 +1,39 @@
+<style>
+.about{
+    padding: 20px 0 20px 50px;
+}
+
+.h2__mark{
+    margin-bottom: 50px;
+}
+
+.h2__mark:after{
+    content: "";
+    display: block;
+    width: 220px;
+    height: 10px;
+    margin: -8px 25px;
+    background-color: rgb(255, 230, 0);
+}
+</style>
+<!doctype html>
+    <head>
+        <%- include('template/body') %>
+        <%- include('template/navbar') %>
+        <header>
+            <div class="main">
+                <div class="title">
+                    <h1>分類列表</h1>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="about">
+                <h2 class="h2__mark">嗨嗨，我是分類列表，</h2>
+                <p>你是誰？</p>
+            <div>
+        </section>
+        <%- include('template/footer') %>
+    </head>
+</html>

@@ -1,0 +1,123 @@
+<style>
+.articles-form{
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.articles-input{
+    width: 60vw;
+    height: 5vh;
+    background-color: #224;
+    color: white;
+    font-size: 20px;
+    border: 1px solid aliceblue;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.articles-textarea{
+    width: 60vw;
+    height: 20vh;
+    display: flex;
+    background-color: #224;
+    color: white;
+    font-size: 20px;
+    border: 1px solid aliceblue;
+    border-radius: 6px;
+}
+
+.articles-textarea__btn{
+    width: 60vw;
+    padding: 5px 0;
+    border: 1px solid aliceblue;
+    border-radius: 6px;
+    background-color: #224;
+    color: aliceblue;
+    font-size: 14px;
+    letter-spacing: 6px;
+    margin: 15px 0px 0px 2px;
+}
+
+.articles-textarea__btn:hover{
+    padding: 5px 0;
+    border: 1px solid #224;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: white;
+    color: #224;
+}
+
+.ck-editor__editable_inline {
+	/* 設定最低高度 */
+    min-height: 300px;
+}
+</style>
+<!doctype html>
+    <head>
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+    <%- include('template/body') %>
+            <a class="logo" href="/"></a>
+        <header>
+            <div class="main">
+                <div class="title">
+                    <h1>新增文章</h1>
+                </div>
+            </div>
+        </header>
+        <form class="articles-form" method="POST" action="/articles">
+            <textarea class="articles-input" name="title" placeholder="標題"></textarea>
+            <textarea class="articles-textarea" name="content" placeholder="內文"><p></p>
+            </textarea>
+            <button class="articles-textarea__btn" type="submit">提交</button>
+        </form>
+        <%- include('template/footer') %>
+    </head>
+
+        <script>
+            ClassicEditor
+			.create( document.querySelector( '.articles-textarea' ), {
+				toolbar: {
+					items: [
+						'heading',
+						'|',
+						'bold',
+						'italic',
+						'link',
+						'bulletedList',
+						'numberedList',
+						'|',
+						'indent',
+						'outdent',
+						'|',
+						'imageUpload',
+						'blockQuote',
+						'insertTable',
+						'mediaEmbed',
+						'undo',
+						'redo'
+					]
+				},
+				language: 'zh',
+				image: {
+					toolbar: [
+						'imageTextAlternative',
+						'imageStyle:full',
+						'imageStyle:side'
+					]
+				},
+				table: {
+					contentToolbar: [
+						'tableColumn',
+						'tableRow',
+						'mergeTableCells'
+					]
+				},
+				licenseKey: '',
+			} )
+			.catch( error => {
+				console.error( error );
+			} );
+        </script>
+</html>
