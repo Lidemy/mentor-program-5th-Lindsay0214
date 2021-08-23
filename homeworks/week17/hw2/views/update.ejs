@@ -1,0 +1,29 @@
+<!doctype html>
+    <head>
+        <%- include('template/body') %>
+            <a class="logo" href="/"></a>
+        <header>
+            <div class="main">
+                <div class="title">
+                    <h1>修改獎品</h1>
+                </div>
+            </div>
+        </header>
+        <section>
+        <form class="form__prize" method="POST" action="/update-prize/<%= prize.id %>">
+          <% if (errorMessage && errorMessage.length > 0) { %>
+            <div class="warning"><%= errorMessage %></div>
+          <% } %>
+          <div class="input">
+            <div>標題<input class="input__prize" name="title" type="text" value="<%- prize.title %>"></div>
+            <div>描述<input class="input__prize" name="desc" type="text" value="<%- prize.desc %>"></div>
+            <div>圖片<input class="input__prize" name="image" type="text" value="<%- prize.image %>"></div>
+            <div>機率<input class="input__prize" name="shot" type="text" value="<%- prize.shot %>"></div>
+          </div>
+          <input class="form__prize__submit-btn" type="submit" value="submit">
+        </form>
+      </section>
+        
+        <%- include('template/footer') %>
+    </head>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+    <head>
+        <%- include('template/body') %>
+            <a class="logo" href="/"></a>
+        <header>
+            <div class="main">
+                <div class="title">
+                    <h1>Register</h1>
+                </div>
+            </div>
+        </header>
+
+            <h2 class="warning"><%= errorMessage %></h2>
+            <form class="form" method="POST" action="/register">
+                <div>USERNAME<input class="input" type="text" name="username" /></div>
+                <div>NICKNAME<input class="input" type="text" name="nickname" /></div>
+                <div>PASSWORD<input class="input" type="password" name="password" /></div>
+                <input class="btn" type="submit" />
+            </form>
+        
+        <%- include('template/footer') %>
+    </head>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+    <head>
+        <%- include('template/body') %>
+            <a class="logo" href="/"></a>
+        <header>
+            <div class="main">
+                <div class="title">
+                    <h1>新增獎品</h1>
+                </div>
+            </div>
+        </header>
+        <section>
+        <form class="form__prize" method="POST" action="/addPrize">
+          <div class="inputs">
+            <div>標題<input class="input__prize" name="title" type="text"></div>
+            <div>描述<input class="input__prize" name="desc" type="text"></div>
+            <div>圖片<input class="input__prize" name="image" type="text"></div>
+            <div>機率<input class="input__prize" name="shot" type="text"></div>
+          </div>
+          <input class="form__prize__submit-btn" type="submit" value="submit">
+        </form>
+      </section>
+        
+        <%- include('template/footer') %>
+    </head>
+</html>
